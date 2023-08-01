@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Integrantes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+
+        .btn-warning {
+            background-color: #ffc107;
+            border-color: #ffc107;
+        }
+
+        .btn-warning:hover {
+            background-color: #e0a800;
+            border-color: #d39e00;
+        }
+
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+
+        table {
+            background-color: #fff;
+        }
+
+        .centered {
+            display: flex;
+            justify-content: center;
+        }
+
+        .action-icons {
+            display: flex;
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="centered">
+        <a th:href="@{/nuevo}" class="btn btn-dark">
+            Nuevo
+        </a>
+    </div>
+    <br><br>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOMBRES</th>
+            <th>EMAIL</th>
+            <th>ACCIONES</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="persona:${personas}">
+            <td th:text="${persona.id}"></td>
+            <td th:text="${persona.name}"></td>
+            <td th:text="${persona.email}"></td>
+            <td>
+                <div class="action-icons">
+                    <a th:href="@{/editar/}+${persona.id}" class="btn btn-info">
+                        Editar
+                    </a>
+                    <a th:href="@{/eliminar/}+${persona.id}" class="btn btn-warning">
+                        Eliminar
+                    </a>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-um8wkU0QdgyMVDQWoxFbvG0TsTojsKcVZ1VJtSi+8uc2FJ8COExdI2OkS5oIt0cK" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-tVY2JstRg6rwWxjkkZ/rTW64K+/rJ2STswHEtcdYGjOJ4LxGrzx6nhTB36iqSzD0" crossorigin="anonymous"></script>
+</body>
+</html>

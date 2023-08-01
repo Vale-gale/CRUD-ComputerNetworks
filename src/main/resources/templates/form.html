@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Integrantes</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+<div class="container mt-4">
+  <div class="col-sm-6">
+
+    <form th:action="@{/guardar}" th:object="${persona}" method="POST">
+      <div class="card">
+        <div class="card-header">
+          <h3>Modulo Integrante</h3>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label>ID</label>
+            <input th:field="*{id}" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>INTEGRANTES</label>
+            <input th:field="*{name}" type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>EMAIL</label>
+            <input th:field="*{email}" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="card-footer">
+          <input type="submit" value="Guardar" class="btn btn-primary">
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+</div>
+</body>
+</html>
